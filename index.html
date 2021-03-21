@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2196f3">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+
+    <title>iux by Maxartkiller - Framework7 template</title>
+    
+    <!-- manifest meta -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json" />
+
+    <link rel="apple-touch-icon" href="img/favicon512.png">
+    <link rel="icon" href="img/favicon32.png">
+
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&amp;display=swap" rel="stylesheet">
+
+    <!-- Stylesheet for framework 7 -->
+    <link rel="stylesheet" href="css/framework7.bundle.min.css">
+
+    <!-- Stylesheet for Application custom -->
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="panel panel-left panel-cover panel-resizable panel-init main-menu">
+            <div class="page">
+                <div class="page-content">
+                    <div class="page-container">
+                    <div class="block no-margin-top text-align-center">
+                        <div class="icon icon-100 position-relative mx-auto">
+                            <figure class="background">
+                                <img src="img/user-1.jpg" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="list links-list no-hairlines">
+                        <ul>
+                            <li>
+                                <a href="/home/" class="panel-close active">Home</a>
+                            </li>
+                            <li>
+                                <a href="/analytics/" class="panel-close">Analytics</a>
+                            </li>
+                            <li>
+                                <a href="/nearby/" class="panel-close">Near by</a>
+                            </li>
+                            <li>
+                                <a href="/requestsent/" class="panel-close">Request Sent</a>
+                            </li>
+                            <li>
+                                <a href="/newoffer/" class="panel-close">New Offers</a>
+                            </li>
+                            <li>
+                                <a href="/booking/" class="panel-close">My Bookings</a>
+                            </li>
+                            <li>
+                                <a href="/settings/" class="panel-close">Settings</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="block text-align-center">
+                        <a href="/home/" class="button button-link text-color-pink panel-close">Sign in</a>
+
+                        <button class="button button-raised button-fill color-pink small-button panel-close text-white margin-top mx-auto close-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-size-24" viewBox="0 0 512 512">
+                                <title>ionicons-v5-l</title>
+                                <line x1="368" y1="368" x2="144" y2="144" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line>
+                                <line x1="368" y1="144" x2="144" y2="368" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-right panel-cover panel-resizable panel-init filter">
+            <div class="view view-init view-right" data-name="right" data-url="/">
+                <div class="page">
+                    <div class="page-content">
+                        <div class="block no-margin-top">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="no-margin-bottom">Filter Criteria</h5>
+                                    <p class="text-secondary">1542 Products</p>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="button button-raised button-fill color-pink small-button panel-close text-white margin-top-half">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-size-24" viewBox="0 0 512 512">
+                                            <title>ionicons-v5-l</title>
+                                            <line x1="368" y1="368" x2="144" y2="144" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line>
+                                            <line x1="368" y1="144" x2="144" y2="368" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="block-title display-flex justify-content-space-between">Price Filter <span class="price-value">$200 - $400</span></div>
+                        <div class="list simple-list no-hairlines no-margin-bottom">
+                            <ul>
+                                <li class="item-row ">
+                                    <div class="item-cell width-auto flex-shrink-0">
+                                        <i class="icon f7-icons if-not-md">money_dollar_round</i>
+                                        <i class="icon material-icons md-only">attach_money</i>
+                                    </div>
+                                    <div class="item-cell item-cell-shrink-3">
+                                        <!-- Dual range slider with all the parameters passed via data- attributes -->
+                                        <div id="price-filter" class="range-slider range-slider-init color-pink" data-label="true" data-dual="true" data-min="0" data-max="500" data-step="1" data-value-left="200" data-value-right="400"></div>
+                                    </div>
+                                    <div class="item-cell width-auto flex-shrink-0">
+                                        <i class="icon f7-icons if-not-md">money_dollar_round_fill</i>
+                                        <i class="icon material-icons md-only">monetization_on</i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list no-hairlines no-margin-bottom margin-top-half">
+                            <ul>
+                                <li class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-floating-label">Select Property Type</div>
+                                        <div class="item-input-wrap">
+                                            <select>
+                                                <option value="Home">Home</option>
+                                                <option value="Room">Room</option>
+                                                <option value="Flat">Flat</option>
+                                                <option value="Flat">Villa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block no-margin-bottom margin-top-half">
+                            <p class="small text-secondary">Select Property Type</p>
+                        </div>
+                        <div class="list simple-list no-hairlines no-margin-top no-margin-bottom">
+                            <ul>
+                                <li>
+                                    <span>Garden</span>
+                                    <label class="toggle toggle-init color-pink">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-icon"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <span>Gym</span>
+                                    <label class="toggle toggle-init color-pink">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-icon"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <span>Sport</span>
+                                    <label class="toggle toggle-init color-pink">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-icon"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <span>Parking</span>
+                                    <label class="toggle toggle-init color-pink">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-icon"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <span>Kid's Play</span>
+                                    <label class="toggle toggle-init color-pink">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-icon"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list no-hairlines no-margin-top">
+                            <ul>
+                                <li class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-floating-label">Keywords</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" placeholder="Keyword">
+                                            <span class="input-clear-button"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-floating-label">Minimum Discount</div>
+                                        <div class="item-input-wrap">
+                                            <select>
+                                                <option value="Home">20%</option>
+                                                <option value="Room">50%</option>
+                                                <option value="Flat">60%</option>
+                                                <option value="Flat">80%</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block">
+                            <button class="button button-raised button-rounded button-fill color-blue">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="view view-main view-init safe-areas" data-master-detail-breakpoint="800" data-url="/">
+            <div class="loader-display padding">
+                <div class="row h-100">
+                    <div class="align-self-center col">
+                        <div class="logo-loading">
+                            <div class="icon icon-100 bg-dark text-white margin-bottom">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-size-48" viewBox="0 0 512 512">
+                                    <title>ionicons-v5-i</title>
+                                    <path d="M80,212V448a16,16,0,0,0,16,16h96V328a24,24,0,0,1,24-24h80a24,24,0,0,1,24,24V464h96a16,16,0,0,0,16-16V212" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path>
+                                    <path d="M480,256,266.89,52c-5-5.28-16.69-5.34-21.78,0L32,256" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path>
+                                    <polyline points="400 179 400 64 352 64 352 133" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></polyline>
+                                </svg>
+                            </div>
+                            <h4>Housing</h4>
+                            <div class="loader-ellipsis">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page page-landing" data-name="landing">
+                <div class="navbar navbar-transparent">
+                    <div class="navbar-bg"></div>
+                    <div class="navbar-inner">
+                        <div class="left">
+                        </div>
+                        <div class="right">
+                            <a href="/home/" class="link text-secondary"><small>Skip</small></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="toolbar toolbar-bottom footer-button padding">
+
+                    <div class="row no-gap">
+                        <div class="col-50">
+                            <a href="/signin/" class="col button button-large button-round button-raised color-blue button-fill">Sign in</a>
+                        </div>
+                        <div class="col-50">
+                            <a href="/signup/" class="col button button-large button-round button-raised color-pink button-fill">Sign up</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-content">
+                    <div class="block ">
+                        <!-- Swiper -->
+                        <div class="swiper-container swiper-init" data-pagination='{"el": ".swiper-pagination"}'>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide text-align-center">
+                                    <div class="image-circle">
+                                        <figure class="background">
+                                            <img src="img/image-2.jpg" alt="">
+                                        </figure>
+                                        <div class="icon icon-100 bg-dark text-white">
+                                            <svg xmlns='http://www.w3.org/2000/svg' class="icon-size-48" viewBox='0 0 512 512'>
+                                                <title>ionicons-v5-i</title>
+                                                <path d='M80,212V448a16,16,0,0,0,16,16h96V328a24,24,0,0,1,24-24h80a24,24,0,0,1,24,24V464h96a16,16,0,0,0,16-16V212' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+                                                <path d='M480,256,266.89,52c-5-5.28-16.69-5.34-21.78,0L32,256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+                                                <polyline points='400 179 400 64 352 64 352 133' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <h4 class="mt-0 mb-3">Best Houses & Villa</h4>
+                                    <div class="row mb-3 justify-content-center">
+                                        <div class="col-80 medium-50 large-40 mx-auto">
+                                            <p class="small-font text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide text-align-center">
+                                    <div class="image-circle">
+                                        <figure class="background">
+                                            <img src="img/image-3.jpg" alt="">
+                                        </figure>
+                                        <div class="icon icon-100 bg-dark text-white">
+                                            <svg xmlns='http://www.w3.org/2000/svg' class="icon-size-48" viewBox='0 0 512 512'>
+                                                <title>ionicons-v5-q</title>
+                                                <line x1='48' y1='256' x2='464' y2='256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+                                                <rect x='384' y='128' width='32' height='256' rx='16' ry='16' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+                                                <rect x='96' y='128' width='32' height='256' rx='16' ry='16' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+                                                <rect x='32' y='192' width='16' height='128' rx='8' ry='8' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+                                                <rect x='464' y='192' width='16' height='128' rx='8' ry='8' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <h4 class="mt-0 mb-3">Book Rooms</h4>
+                                    <div class="row mb-3 justify-content-center">
+                                        <div class="col-80 medium-50 large-40 mx-auto">
+                                            <p class="small-font text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide text-align-center">
+                                    <div class="image-circle">
+                                        <figure class="background">
+                                            <img src="img/image-2.jpg" alt="">
+                                        </figure>
+                                        <div class="icon icon-100 bg-dark text-white">
+                                            <svg xmlns='http://www.w3.org/2000/svg' class="icon-size-48" viewBox='0 0 512 512'>
+                                                <title>ionicons-v5-i</title>
+                                                <path d='M80,212V448a16,16,0,0,0,16,16h96V328a24,24,0,0,1,24-24h80a24,24,0,0,1,24,24V464h96a16,16,0,0,0,16-16V212' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+                                                <path d='M480,256,266.89,52c-5-5.28-16.69-5.34-21.78,0L32,256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+                                                <polyline points='400 179 400 64 352 64 352 133' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <h4 class="mt-0 mb-3">Best Houses & Villa</h4>
+                                    <div class="row mb-3 justify-content-center">
+                                        <div class="col-80 medium-50 large-40 mx-auto">
+                                            <p class="small-font text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/framework7.bundle.min.js"></script>
+    <script src="js/routes.js"></script>
+    
+    <!-- jquery -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    
+    <!-- chart js -->
+    <script src="js/chartjs/Chart.bundle.min.js"></script>
+    <script src="js/chartjs/utils.js"></script>
+    
+    <!-- app js -->
+    <script src="js/app.js"></script>       
+    
+</body>
+</html>
