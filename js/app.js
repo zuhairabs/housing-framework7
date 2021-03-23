@@ -24,6 +24,10 @@ var app = new Framework7({
         helloWorld: function () {
             app.dialog.alert('Hello World!');
         },
+        toggleSwipeStep: function () {
+            var self = this;
+            self.sheetSwipeToStep.stepToggle();
+          },
     },
     routes: routes,
     popup: {
@@ -98,6 +102,82 @@ $(document).on('page:init', '.page[data-name="home"]', function (e) {
         $('.price-value').text('$' + (range.value[0]) + ' - $' + (range.value[1]));
     });
 
+
+    // Standalone Popup
+    self.autocompleteStandalonePopup = app.autocomplete.create({
+        openIn: 'popup', //open in page
+        searchbarPlaceholder: 'vijayanagar',
+        openerEl: '#autocomplete-standalone-popup', //link that opens autocomplete
+        closeOnSelect: true, //go back after we select something
+        source: function (query, render) {
+            var autocomplete = this;
+            var results = [];
+            if (query.length === 0) {
+              render(results);
+              return;
+            }
+            // Show Preloader
+            autocomplete.preloaderShow();
+
+            // Do Ajax request to Autocomplete data
+            app.request({
+              url: './js/autocomplete-languages.json',
+              method: 'GET',
+              dataType: 'json',
+              //send "query" to server. Useful in case you generate response dynamically
+              data: {
+                query: query,
+              },
+              success: function (data) {
+                // Find matched items
+                for (var i = 0; i < data.locations.length; i++) {
+                  if (data.locations[i].toLowerCase().indexOf(query.toLowerCase()) === 0) results.push(data.locations[i]);
+                }
+                // Hide Preoloader
+                autocomplete.preloaderHide();
+                // Render items by passing array with result items
+                render(results);
+              }
+            });
+        },
+        on: {
+          change: function (value) {
+            // Add item text value to item-after
+            $('#autocomplete-standalone-popup').find('.item-after').text(value[0]);
+            // Add item value to input value
+            $('#autocomplete-standalone-popup').find('input').val(value[0]);
+          },
+        },
+      });
+
+      self.sheetSwipeToStep = self.app.sheet.create({
+        el: '.demo-sheet-swipe-to-step',
+        swipeToClose: true,
+        swipeToStep: true,
+        push: true,
+        backdrop: true,
+        on: {
+            open: function (sheet) {
+                let location = document.getElementById('predict_location').value;
+                let total_sqft = document.getElementById('predict_sqft').value;
+                let bhk = document.getElementById('predict_bhk').value;
+                let bath = document.getElementById('predict_bath').value;
+                // Do Ajax request to Autocomplete data
+                app.request({
+                    url: 'https://jsonplaceholder.typicode.com/todos/1',
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#predicted_price').html(`<b>${data.id} Lakhs</b>`);
+                        $('#predicted_location').html(`<b>${location}</b>`.toUpperCase());
+                        $('#predicted_sqft').html(`<b>${total_sqft}</b>`);
+                        $('#predicted_bath').html(`<b>${bath}</b>`);
+                        $('#predicted_bhk').html(`<b>${bhk}</b>`);
+                    }
+                });
+            },
+        }
+      });
   
     document.getElementById('addtohome').addEventListener("click", function (event) {
         defferedPrompt.prompt();
@@ -111,7 +191,6 @@ $(document).on('page:init', '.page[data-name="home"]', function (e) {
             defferedPrompt = null;
         });
     });
-
 
 
 });
