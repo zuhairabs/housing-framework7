@@ -27,7 +27,7 @@ var app = new Framework7({
         toggleSwipeStep: function () {
             var self = this;
             self.sheetSwipeToStep.stepToggle();
-          },
+        },
     },
     routes: routes,
     popup: {
@@ -62,7 +62,7 @@ if ("serviceWorker" in navigator) {
     window.addEventListener("load", function (event) {
         navigator.serviceWorker
             .register("../serviceWorker.js", {
-            //.register("https://maxartkiller.com/website/soroniux-web/Framework7/serviceWorker.js", {
+                //.register("https://maxartkiller.com/website/soroniux-web/Framework7/serviceWorker.js", {
                 scope: './'
             })
             .then(reg => console.log("service worker registered"))
@@ -113,44 +113,44 @@ $(document).on('page:init', '.page[data-name="home"]', function (e) {
             var autocomplete = this;
             var results = [];
             if (query.length === 0) {
-              render(results);
-              return;
+                render(results);
+                return;
             }
             // Show Preloader
-            autocomplete.preloaderShow();
+            app.preloader.show();
 
             // Do Ajax request to Autocomplete data
             app.request({
-              url: './js/autocomplete-languages.json',
-              method: 'GET',
-              dataType: 'json',
-              //send "query" to server. Useful in case you generate response dynamically
-              data: {
-                query: query,
-              },
-              success: function (data) {
-                // Find matched items
-                for (var i = 0; i < data.locations.length; i++) {
-                  if (data.locations[i].toLowerCase().indexOf(query.toLowerCase()) === 0) results.push(data.locations[i]);
+                url: 'https://apihousing.herokuapp.com/get_location_names',
+                method: 'GET',
+                dataType: 'json',
+                //send "query" to server. Useful in case you generate response dynamically
+                data: {
+                    query: query,
+                },
+                success: function (data) {
+                    // Find matched items
+                    for (var i = 0; i < data.locations.length; i++) {
+                        if (data.locations[i].toLowerCase().indexOf(query.toLowerCase()) === 0) results.push(data.locations[i]);
+                    }
+                    // Hide Preoloader
+                    app.preloader.hide();
+                    // Render items by passing array with result items
+                    render(results);
                 }
-                // Hide Preoloader
-                autocomplete.preloaderHide();
-                // Render items by passing array with result items
-                render(results);
-              }
             });
         },
         on: {
-          change: function (value) {
-            // Add item text value to item-after
-            $('#autocomplete-standalone-popup').find('.item-after').text(value[0]);
-            // Add item value to input value
-            $('#autocomplete-standalone-popup').find('input').val(value[0]);
-          },
+            change: function (value) {
+                // Add item text value to item-after
+                $('#autocomplete-standalone-popup').find('.item-after').text(value[0]);
+                // Add item value to input value
+                $('#autocomplete-standalone-popup').find('input').val(value[0]);
+            },
         },
-      });
+    });
 
-      self.sheetSwipeToStep = self.app.sheet.create({
+    self.sheetSwipeToStep = self.app.sheet.create({
         el: '.demo-sheet-swipe-to-step',
         swipeToClose: true,
         swipeToStep: true,
@@ -162,13 +162,24 @@ $(document).on('page:init', '.page[data-name="home"]', function (e) {
                 let total_sqft = document.getElementById('predict_sqft').value;
                 let bhk = document.getElementById('predict_bhk').value;
                 let bath = document.getElementById('predict_bath').value;
+                // Show Preloader
+                app.preloader.show('#predicted_price','white');
+
                 // Do Ajax request to Autocomplete data
                 app.request({
-                    url: 'https://jsonplaceholder.typicode.com/todos/1',
-                    method: 'GET',
+                    url: 'https://apihousing.herokuapp.com/predict_home_price',
+                    method: 'POST',
                     dataType: 'json',
+                    data: {
+                        location: location,
+                        total_sqft: total_sqft,
+                        bhk: bhk,
+                        bath: bath
+                    },
                     success: function (data) {
-                        $('#predicted_price').html(`<b>${data.id} Lakhs</b>`);
+                        $('#predicted_price').html(`<b>${data.estimated_price} Lakhs</b>`);
+                        // Show Preloader
+                        app.preloader.hide();
                         $('#predicted_location').html(`<b>${location}</b>`.toUpperCase());
                         $('#predicted_sqft').html(`<b>${total_sqft}</b>`);
                         $('#predicted_bath').html(`<b>${bath}</b>`);
@@ -177,8 +188,8 @@ $(document).on('page:init', '.page[data-name="home"]', function (e) {
                 });
             },
         }
-      });
-  
+    });
+
     document.getElementById('addtohome').addEventListener("click", function (event) {
         defferedPrompt.prompt();
 
