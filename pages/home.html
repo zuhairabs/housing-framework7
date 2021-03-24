@@ -212,9 +212,9 @@
                                 <div class="sheet-modal-inner">
                                   <div class="swipe-handler" @click="toggleSwipeStep"></div>
                                   <div class="sheet-modal-swipe-step">
-                                    <div class="display-flex padding justify-content-space-between align-items-center">
+                                    <div id="predicted" class="display-flex padding justify-content-space-between align-items-center">
                                       <div style="font-size: 18px"><b>Predicted Price:</b></div>
-                                      <div id="predicted_price" style="font-size: 22px"><b>Loading...</b></div>
+                                      <div id="predicted_price" style="font-size: 22px"><div class="preloader color-multi"></div></div>
                                     </div>
                                     <div class="padding-horizontal padding-bottom">
                                       <a href="https://apihousing.herokuapp.com" target="_blank" class="button button-large color-blue button-raised button-fill">Prediction API</a>
